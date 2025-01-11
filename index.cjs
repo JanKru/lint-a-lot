@@ -1,3 +1,7 @@
-const { plugin } = require("./eslint-config-lint-a-lot/plugin.cjs");
+const esLintConfig = require("./eslint-config/plugin.cjs");
+const stylelintConfig = require("./stylelint-config/index.cjs");
 
-module.exports = plugin;
+module.exports = {
+  esLintConfig,
+  stylelintConfig,
+};

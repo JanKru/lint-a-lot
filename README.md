@@ -1,14 +1,27 @@
 # Lint-a-lot
-The purpose of this package is to wrap common eslint and stylelint extensions in order to set them up as quickly as possible.
+The purpose of this package is to wrap common eslint and stylelint extensions in order to set them up as quickly as possible for a angular-project.
 
-## Install
+
+## Get started
+
+### Install
 Add dependency
 ```bash
 npm i @j1n/lint-a-lot
 ```
-In `eslint.config.js`
-```
 
+#### CommonJS
+In `eslint.config.js`
+
+```typescript
+module.exports = {
+  // ...other config
+  files: ["**/*.ts"],
+  extends: [
+    ...lintALot.esLintConfig.configs.recommended,
+    ],
+    // ...other config
+};
 ```
 ### Test locally
 
