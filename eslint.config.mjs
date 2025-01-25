@@ -1,7 +1,6 @@
 import js from "@eslint/js";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import eslintPlugin from "eslint-plugin-eslint-plugin";
-import eslintConfigPrettier from "eslint-config-prettier";
 import nodePlugin from "eslint-plugin-n";
 
 export default [
@@ -20,5 +19,4 @@ export default [
     },
   },
   eslintPluginPrettierRecommended,
-  eslintConfigPrettier,
 ];

@@ -3,8 +3,11 @@ const path = require("path");
 const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
 const eslint = require("@eslint/js");
 const angular = require("angular-eslint");
-const htmlPlugin = require("eslint-plugin-html");
-const eslintConfigPrettier = require("eslint-config-prettier");
+const typescriptEslintPlugin = require("@typescript-eslint/eslint-plugin");
+const typescriptEslintParser = require("@typescript-eslint/parser");
+const jasmine = require("eslint-plugin-jasmine");
+const globals = require("globals");
+const { jsRules, tsRules, jasmineRules } = require("./custom-rules.js");
 
 const pkg = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
@@ -20,51 +23,69 @@ const plugin = {
 };
 
 Object.assign(plugin.configs, {
-  recommendedAngular: [
-    eslint.configs.recommended,
-    eslintPluginPrettierRecommended,
-    ...angular.configs.tsRecommended,
-    {
-      rules: {
-        // insert rules
-      },
-      languageOptions: {
-        globals: {
-          myGlobal: "readonly",
+  angular: {
+    tsRecommended: [
+      eslint.configs.recommended,
+      angular.configs.tsRecommended,
+      {
+        processor: angular.processInlineTemplates,
+        rules: {
+          "@angular-eslint/directive-selector": [
+            "error",
+            {
+              type: "attribute",
+              prefix: "app",
+              style: "camelCase",
+            },
+          ],
+          "@angular-eslint/component-selector": [
+            "error",
+            {
+              type: "element",
+              prefix: "app",
+              style: "kebab-case",
+            },
+          ],
         },
-        parserOptions: {
-          ecmaFeatures: {
-            jsx: true,
+      },
+      {
+        files: ["*.ts", "*.tsx"],
+        languageOptions: {
+          parser: typescriptEslintParser,
+          parserOptions: {
+            ecmaVersion: "latest",
+            sourceType: "module",
           },
         },
+        plugins: {
+          "@typescript-eslint": typescriptEslintPlugin,
+        },
+        rules: {
+          ...jsRules,
+          ...tsRules,
+          ...typescriptEslintPlugin.configs.recommended.rules,
+        },
       },
-    },
-    eslintConfigPrettier,
-  ],
-});
-
-Object.assign(plugin.configs, {
-  recommendedTemplateAngular: [
-    {
-      languageOptions: {},
-    },
-    ...angular.configs.templateRecommended,
-    ...angular.configs.templateAccessibility,
-    {
-      plugins: {
-        html: htmlPlugin,
-        prettier: eslintConfigPrettier,
-      },
-      rules: {
-        "prettier/prettier": [
-          "error",
-          {
-            parser: "html",
+      {
+        files: ["*.spec.ts"],
+        plugins: {
+          jasmine,
+        },
+        languageOptions: {
+          globals: {
+            ...globals.jasmine,
           },
-        ],
+        },
+        rules: jasmineRules,
       },
-    },
-  ],
+      eslintPluginPrettierRecommended,
+    ],
+    htmlRecommended: [
+      angular.configs.templateRecommended,
+      angular.configs.templateAccessibility,
+      eslintPluginPrettierRecommended,
+    ],
+  },
 });
 
 module.exports = plugin;
