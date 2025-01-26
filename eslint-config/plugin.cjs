@@ -5,9 +5,16 @@ const eslint = require("@eslint/js");
 const angular = require("angular-eslint");
 const typescriptEslintPlugin = require("@typescript-eslint/eslint-plugin");
 const typescriptEslintParser = require("@typescript-eslint/parser");
+const eslintPluginImportX = require("eslint-plugin-import-x");
 const jasmine = require("eslint-plugin-jasmine");
+const tsResolver = require("eslint-import-resolver-typescript");
 const globals = require("globals");
-const { jsRules, tsRules, jasmineRules } = require("./custom-rules.js");
+const {
+  jsRules,
+  tsRules,
+  jasmineRules,
+  importX,
+} = require("./custom-rules.js");
 
 const pkg = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
@@ -49,21 +56,33 @@ Object.assign(plugin.configs, {
         },
       },
       {
-        files: ["*.ts", "*.tsx"],
+        files: ["*.ts"],
+        ignores: ["eslint.config.js"],
         languageOptions: {
           parser: typescriptEslintParser,
           parserOptions: {
             ecmaVersion: "latest",
-            sourceType: "module",
+            sourceType: "commonjs",
           },
         },
         plugins: {
           "@typescript-eslint": typescriptEslintPlugin,
+          "import-x": eslintPluginImportX,
+        },
+        settings: {
+          "import-x/resolver": {
+            typescript: true,
+            name: "tsResolver",
+            resolver: tsResolver,
+          },
         },
         rules: {
           ...jsRules,
           ...tsRules,
           ...typescriptEslintPlugin.configs.recommended.rules,
+          ...eslintPluginImportX.configs.recommended.rules,
+          ...eslintPluginImportX.flatConfigs.typescript.rules,
+          ...importX,
         },
       },
       {

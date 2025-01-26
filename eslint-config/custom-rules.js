@@ -42,4 +42,22 @@ const jasmineRules = {
   "jasmine/no-disabled-tests": "warn",
 };
 
-module.exports = { jsRules, tsRules, jasmineRules };
+const importX = {
+  "import-x/order": [
+    "error",
+    {
+      groups: [
+        ["builtin", "external"], // Eingebaute Module wie fs und externe Pakete
+        ["internal"], // Interne Imports (z. B. aus deinem Projekt)
+        ["parent", "sibling", "index"], // Relative Imports
+      ],
+      "newlines-between": "always", // Neue Zeilen zwischen Gruppen
+      alphabetize: {
+        order: "asc", // Alphabetische Reihenfolge
+        caseInsensitive: true, // Groß- und Kleinschreibung ignorieren
+      },
+    },
+  ],
+};
+
+module.exports = { jsRules, tsRules, jasmineRules, importX };

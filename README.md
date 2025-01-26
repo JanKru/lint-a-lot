@@ -1,16 +1,20 @@
-# Lint-a-lot
-The purpose of this package is to wrap common eslint and stylelint extensions in order to set them up as quickly as possible for a angular-project.
 
+# Lint-a-lot
+
+The purpose of this package is to wrap common eslint and stylelint extensions in order to set them up as quickly as possible for a angular-project.
 
 ## Get started
 
 ### Install
+
 Add dependency
+
 ```bash
-npm i lint-a-lot
+npm i lint-a-lot --save-dev
 ```
 
 #### CommonJS
+
 In `eslint.config.js`
 
 ```typescript
@@ -31,24 +35,29 @@ module.exports = tseslint.config(
   }
 );
 ```
+
 ### Test locally
 
 If you want to test this library you can use `npm pack`. This will result in the creation of a `.tgz`-file.
+
 1. Go to the project where you want to use lint-a-lot.
 2. Open `package.json`
-3. Add lint-a-lot to `devDependencies`
-```json
+3. Add lint-a-lot to `devDependencies` -> `json
   "lint-a-lot": "file:<PATH_TO_YOUR_TGZ_FILE>",
-```
+`
 4. Remove `node_modules`-Dir
 5. Remove `package-lock.json`
 6. Run `npm i`
 7. Restart IDE (especially vscode)
 
 # Rules overview
+
 Overview of rules and used plugins/configs.
+
 ## Es-lint `angular.tsRecommended` and `angular.htmlRecommended`
+
 ### Custom rules
+
 * [eslint-no-console](https://eslint.org/docs/latest/rules/no-console)
 * [eslint-no-alert](https://eslint.org/docs/latest/rules/no-alert)
 * [eslint-no-debugger](https://eslint.org/docs/latest/rules/no-debugger)
@@ -59,9 +68,11 @@ Overview of rules and used plugins/configs.
 * [typescript-eslint-naming-convention](https://typescript-eslint.io/rules/naming-convention/)
 
 ### Extended packages
+
 * [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)
 * [typescript-eslint](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
 * [angular-eslint](https://github.com/angular-eslint/angular-eslint)
+* [eslint-plugin-jasmine](https://www.npmjs.com/search?q=eslint%20jasmine)
 
 ## Stylelint
 
@@ -71,4 +82,6 @@ Overview of rules and used plugins/configs.
 * [stylelint-no-unsupported-browsers-features](https://www.npmjs.com/package/stylelint-no-unsupported-browser-features)
 
 ## TODO
+
 * maybe include [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)
+* maybe include [eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest)
