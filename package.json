@@ -25,7 +25,8 @@
     "url": "git+https://github.com/JanKru/lint-a-lot.git"
   },
   "publishConfig": {
-    "todo": "tode"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "eslint": "9.21.0",
