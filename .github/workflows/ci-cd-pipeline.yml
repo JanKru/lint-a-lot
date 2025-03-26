@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check PR message
+        uses: commitizen-tools/commitizen-action@master
         run: |
           PR_TITLE="${{ github.event.pull_request.title }}"
           cz check --message "$PR_TITLE"
