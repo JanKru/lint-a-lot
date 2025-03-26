@@ -27,7 +27,7 @@ Also this project contains a `.editorconfig` that should be used.
 Add dependency
 
 ```bash
- npm install lint-a-lot --save-dev
+npm i @j1n/lint-a-lot --save-dev
 ```
 
 This lib supports `.cjs` and `.mjs`.
@@ -38,7 +38,7 @@ In `eslint.config.js`:
 
 ```javascript
 const tseslint = require("typescript-eslint");
-const lal = require("lint-a-lot");
+const lal = require("@j1n/lint-a-lot");
 
 module.exports = tseslint.config(
   {
@@ -61,7 +61,7 @@ module.exports = tseslint.config(
 In `stylelint.config.js`:
 
 ```javascript
-const lal = require("lint-a-lot");
+const lal = require("@j1n/lint-a-lot");
 
 module.exports = lal.stylelintConfig;
 ```
@@ -78,10 +78,10 @@ See [IDE-setup](./docs/ide.md).
 
 If you want to test this library you can use `npm pack`. This will result in the creation of a `.tgz`-file.
 
-1. Go to the project where you want to use one-lint.
+1. Go to the project where you want to use lint-a-lot.
 2. Open `package.json`
-3. Add one-lint to `devDependencies` -> `json
-  "lint-a-lot": "file:<PATH_TO_YOUR_TGZ_FILE>",
+3. Add lint-a-lot to `devDependencies` -> `json
+  "@j1n/lint-a-lot"": "file:<PATH_TO_YOUR_TGZ_FILE>",
 `
 4. Remove `node_modules`-Dir
 5. Remove `package-lock.json`

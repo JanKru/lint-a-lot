@@ -1,5 +1,6 @@
 import { defineConfig } from "rollup";
 import terser from "@rollup/plugin-terser";
+import copy from "rollup-plugin-copy";
 
 export default defineConfig([
   {
@@ -16,6 +17,11 @@ export default defineConfig([
         sourcemap: true,
       },
     ],
-    plugins: [terser()],
+    plugins: [
+      terser(),
+      copy({
+        targets: [{ src: ".editorconfig", dest: "dist" }],
+      }),
+    ],
   },
 ]);

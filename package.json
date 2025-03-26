@@ -1,5 +1,5 @@
 {
-  "name": "lint-a-lot",
+  "name": "@j1n/lint-a-lot",
   "version": "0.1.0",
   "type": "module",
   "files": [
@@ -59,11 +59,25 @@
     "eslint-plugin-eslint-plugin": "6.4.0",
     "eslint-plugin-n": "17.15.1",
     "husky": "9.1.7",
-    "rollup": "4.34.6"
+    "rollup": "4.34.6",
+    "rollup-plugin-copy": "3.5.0"
   },
   "author": "Jan Kruse",
   "bugs": {
     "url": "https://github.com/JanKru/lint-a-lot/issues"
   },
-  "homepage": "https://github.com/JanKru/lint-a-lot"
+  "homepage": "https://github.com/JanKru/lint-a-lot",
+  "keywords": [
+    "eslint",
+    "stylelint",
+    "linting",
+    "angular",
+    "eslint-plugin",
+    "stylelint-config",
+    "typescript",
+    "scss",
+    "lint-rules",
+    "code-quality",
+    "best-practices"
+  ]
 }
