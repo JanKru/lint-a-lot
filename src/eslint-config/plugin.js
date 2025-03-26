@@ -1,20 +1,26 @@
-const fs = require("fs");
-const path = require("path");
-const eslintPluginPrettierRecommended = require("eslint-plugin-prettier/recommended");
-const eslint = require("@eslint/js");
-const angular = require("angular-eslint");
-const typescriptEslintPlugin = require("@typescript-eslint/eslint-plugin");
-const typescriptEslintParser = require("@typescript-eslint/parser");
-const eslintPluginImportX = require("eslint-plugin-import-x");
-const jasmine = require("eslint-plugin-jasmine");
-const tsResolver = require("eslint-import-resolver-typescript");
-const globals = require("globals");
-const {
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslint from "@eslint/js";
+import * as angular from "angular-eslint";
+import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
+import typescriptEslintParser from "@typescript-eslint/parser";
+import eslintPluginImportX from "eslint-plugin-import-x";
+import jasmine from "eslint-plugin-jasmine";
+import tsResolver from "eslint-import-resolver-typescript";
+import globals from "globals";
+import {
   jsRules,
   tsRules,
   jasmineRules,
-  importX,
-} = require("./custom-rules.js");
+  importXRules,
+  angularTemplateRules,
+  angularRules,
+} from "./custom-rules.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const pkg = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
@@ -33,28 +39,7 @@ Object.assign(plugin.configs, {
   angular: {
     tsRecommended: [
       eslint.configs.recommended,
-      angular.configs.tsRecommended,
-      {
-        processor: angular.processInlineTemplates,
-        rules: {
-          "@angular-eslint/directive-selector": [
-            "error",
-            {
-              type: "attribute",
-              prefix: "app",
-              style: "camelCase",
-            },
-          ],
-          "@angular-eslint/component-selector": [
-            "error",
-            {
-              type: "element",
-              prefix: "app",
-              style: "kebab-case",
-            },
-          ],
-        },
-      },
+      ...angular.configs.tsRecommended,
       {
         files: ["*.ts"],
         ignores: ["eslint.config.js"],
@@ -62,9 +47,11 @@ Object.assign(plugin.configs, {
           parser: typescriptEslintParser,
           parserOptions: {
             ecmaVersion: "latest",
-            sourceType: "commonjs",
+            sourceType: "script",
           },
+          globals: globals.browser,
         },
+        processor: angular.processInlineTemplates,
         plugins: {
           "@typescript-eslint": typescriptEslintPlugin,
           "import-x": eslintPluginImportX,
@@ -82,7 +69,8 @@ Object.assign(plugin.configs, {
           ...typescriptEslintPlugin.configs.recommended.rules,
           ...eslintPluginImportX.configs.recommended.rules,
           ...eslintPluginImportX.flatConfigs.typescript.rules,
-          ...importX,
+          ...importXRules,
+          ...angularRules,
         },
       },
       {
@@ -103,8 +91,14 @@ Object.assign(plugin.configs, {
       angular.configs.templateRecommended,
       angular.configs.templateAccessibility,
       eslintPluginPrettierRecommended,
+      {
+        rules: {
+          ...angularTemplateRules,
+          "prettier/prettier": ["error", { parser: "angular" }],
+        },
+      },
     ],
   },
 });
 
-module.exports = plugin;
+export default plugin;

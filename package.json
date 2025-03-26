@@ -1,15 +1,20 @@
 {
   "name": "lint-a-lot",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "require": "./index.cjs"
+      "import": "./dist/bundle.mjs",
+      "require": "./dist/bundle.cjs"
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint",
+    "build": "rollup -c",
+    "build-and-pack": "npm run build && npm pack",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -19,33 +24,45 @@
     "type": "git",
     "url": "git+https://github.com/JanKru/lint-a-lot.git"
   },
+  "publishConfig": {
+    "todo": "tode"
+  },
   "peerDependencies": {
-    "eslint": "~9.13.0"
+    "eslint": "9.21.0",
+    "stylelint": "16.14.1",
+    "typescript-eslint": "8.25.0"
   },
   "dependencies": {
-    "@eslint/js": "~9.15.0",
-    "@typescript-eslint/eslint-plugin": "~8.21.0",
-    "@typescript-eslint/parser": "~8.21.0",
-    "angular-eslint": "~18.4.0",
-    "eslint-config-prettier": "~9.1.0",
-    "eslint-import-resolver-typescript": "~3.7.0",
-    "eslint-plugin-import-x": "~4.6.1",
-    "eslint-plugin-jasmine": "~4.2.2",
-    "eslint-plugin-prettier": "~5.2.1",
-    "globals": "~15.14.0",
-    "typescript-eslint": "~8.10.0"
+    "@eslint/js": "9.21.0",
+    "@rollup/plugin-terser": "0.4.4",
+    "@typescript-eslint/eslint-plugin": "8.23.0",
+    "@typescript-eslint/parser": "8.23.0",
+    "angular-eslint": "18.4.3",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-import-resolver-typescript": "3.7.0",
+    "eslint-plugin-import-x": "4.6.1",
+    "eslint-plugin-jasmine": "4.2.2",
+    "eslint-plugin-prettier": "5.2.1",
+    "globals": "15.14.0",
+    "path": "0.12.7",
+    "stylelint-config-clean-order": "7.0.0",
+    "stylelint-config-standard-scss": "14.0.0",
+    "stylelint-no-unsupported-browser-features": "8.0.4",
+    "stylelint-order": "6.0.4"
   },
   "devDependencies": {
-    "eslint": "~9.13.0",
-    "eslint-config-prettier": "~9.1.0",
-    "eslint-plugin-eslint-plugin": "~6.3.1",
-    "eslint-plugin-n": "~17.11.1",
-    "husky": "^9.1.7"
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
+    "eslint": "9.19.0",
+    "eslint-config-prettier": "10.0.1",
+    "eslint-plugin-eslint-plugin": "6.4.0",
+    "eslint-plugin-n": "17.15.1",
+    "husky": "9.1.7",
+    "rollup": "4.34.6"
   },
-  "author": "J1nK3e",
-  "license": "MIT",
+  "author": "Jan Kruse",
   "bugs": {
     "url": "https://github.com/JanKru/lint-a-lot/issues"
   },
-  "homepage": "https://github.com/JanKru/lint-a-lot#readme"
+  "homepage": "https://github.com/JanKru/lint-a-lot"
 }

@@ -4,6 +4,9 @@ import eslintPlugin from "eslint-plugin-eslint-plugin";
 import nodePlugin from "eslint-plugin-n";
 
 export default [
+  {
+    ignores: ["dist/**/*"],
+  },
   js.configs.recommended,
   eslintPlugin.configs["flat/recommended"],
   nodePlugin.configs["flat/recommended"],
