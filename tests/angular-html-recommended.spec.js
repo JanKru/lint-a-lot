@@ -12,7 +12,6 @@ describe("angular.htmlRecommended", () => {
 
   test("should include angular template accessibility rules", () => {
     const htmlRecommended = plugin.configs.angular.htmlRecommended;
-    console.log(htmlRecommended);
     const rule = htmlRecommended.some(
       (entry) => (entry.name = "angular-eslint/template-accessibility'"),
     );
