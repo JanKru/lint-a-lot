@@ -8,7 +8,7 @@ import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import typescriptEslintParser from "@typescript-eslint/parser";
 import eslintPluginImportX from "eslint-plugin-import-x";
 import jasmine from "eslint-plugin-jasmine";
-import tsResolver from "eslint-import-resolver-typescript";
+import * as tsResolver from "eslint-import-resolver-typescript";
 import globals from "globals";
 import {
   jsRules,
@@ -23,7 +23,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const pkg = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "../package.json"), "utf8"),
+  fs.readFileSync(path.resolve(__dirname, "../../package.json"), "utf8"),
 );
 
 const plugin = {
