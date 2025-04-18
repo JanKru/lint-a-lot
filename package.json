@@ -56,7 +56,6 @@
   "devDependencies": {
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
-    "@j1n/lint-a-lot": "^0.1.1",
     "@jest/globals": "29.7.0",
     "eslint": "9.21.0",
     "eslint-config-prettier": "10.0.1",
