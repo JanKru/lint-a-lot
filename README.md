@@ -27,7 +27,7 @@ Also this project contains a `.editorconfig` that should be used.
 Add dependency
 
 ```bash
-npm i @j1n/lint-a-lot --save-dev
+npm i --save-dev @j1n/lint-a-lot
 ```
 
 This lib supports `.cjs` and `.mjs`.
@@ -138,3 +138,4 @@ Overview of rules and used plugins/configs.
 - [stylelint-order](https://www.npmjs.com/package/stylelint-order)
 - [stylelint-config-clean-order](https://www.npmjs.com/package/stylelint-config-clean-order)
 - [stylelint-no-unsupported-browsers-features](https://www.npmjs.com/package/stylelint-no-unsupported-browser-features)
+- [stylelint-prettier](https://www.npmjs.com/package/stylelint-prettier)
