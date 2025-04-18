@@ -1,3 +1,13 @@
+## 0.2.0 (2025-04-18)
+
+### Feat
+
+- add stylelint-prettier integration (#13)
+
+### Fix
+
+- correct npm command in publish-to-npm.yml (#11)
+
 ## 0.1.1 (2025-03-26)
 
 ### Feat
