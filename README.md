@@ -55,7 +55,22 @@ module.exports = tseslint.config(
   }
 );
 ```
+Check if you have a builder for eslint in your `angular.json`:
 
+```json
+{
+  "lint": {
+    "builder": "@angular-eslint/builder:lint",
+    "options": {
+      "lintFilePatterns": [
+        "src/**/*.ts",
+        "src/**/*.html",
+        "e2e/**/*.ts"
+      ]
+    }
+  }
+}
+```
 ### Stylelint
 
 In `stylelint.config.js`:
