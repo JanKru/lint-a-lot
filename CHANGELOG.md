@@ -1,3 +1,9 @@
+## 0.3.0 (2025-07-09)
+
+### Feat
+
+- update enum rule format to PascalCase in custom ESLint rules (#15)
+
 ## 0.2.0 (2025-04-18)
 
 ### Feat
