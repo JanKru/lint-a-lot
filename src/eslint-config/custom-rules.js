@@ -16,7 +16,7 @@ export const tsRules = {
     },
     {
       selector: "enum",
-      format: ["UPPER_CASE"],
+      format: ["PascalCase"],
     },
   ],
   "@typescript-eslint/explicit-function-return-type": "error",
