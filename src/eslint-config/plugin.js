@@ -5,7 +5,6 @@ import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 import eslint from "@eslint/js";
 import * as angular from "angular-eslint";
 import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
-import typescriptEslintParser from "@typescript-eslint/parser";
 import eslintPluginImportX from "eslint-plugin-import-x";
 import jasmine from "eslint-plugin-jasmine";
 import * as tsResolver from "eslint-import-resolver-typescript";
@@ -46,14 +45,9 @@ Object.assign(plugin.configs, {
       eslint.configs.recommended,
       ...angular.configs.tsRecommended,
       {
-        files: ["*.ts"],
+        files: ["**/*.ts"],
         ignores: ["eslint.config.js"],
         languageOptions: {
-          parser: typescriptEslintParser,
-          parserOptions: {
-            ecmaVersion: "latest",
-            sourceType: "script",
-          },
           globals: globals.browser,
         },
         processor: angular.processInlineTemplates,
@@ -79,7 +73,7 @@ Object.assign(plugin.configs, {
         },
       },
       {
-        files: ["*.spec.ts"],
+        files: ["**/*.spec.ts"],
         plugins: {
           jasmine,
         },
@@ -93,8 +87,8 @@ Object.assign(plugin.configs, {
       eslintPluginPrettierRecommended,
     ],
     htmlRecommended: [
-      angular.configs.templateRecommended,
-      angular.configs.templateAccessibility,
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
       eslintPluginPrettierRecommended,
       {
         rules: {
