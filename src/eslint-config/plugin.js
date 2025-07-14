@@ -73,7 +73,7 @@ Object.assign(plugin.configs, {
         },
       },
       {
-        files: ["*.spec.ts"],
+        files: ["**/*.spec.ts"],
         plugins: {
           jasmine,
         },
@@ -87,8 +87,8 @@ Object.assign(plugin.configs, {
       eslintPluginPrettierRecommended,
     ],
     htmlRecommended: [
-      angular.configs.templateRecommended,
-      angular.configs.templateAccessibility,
+      ...angular.configs.templateRecommended,
+      ...angular.configs.templateAccessibility,
       eslintPluginPrettierRecommended,
       {
         rules: {
