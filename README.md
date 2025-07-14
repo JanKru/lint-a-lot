@@ -36,6 +36,8 @@ This lib supports `.cjs` and `.mjs`.
 
 In `eslint.config.js`:
 
+> Use tsling.config(...) in your `eslint.config.js` ([reason](./docs/architecture/eslint-config.md)):
+
 ```javascript
 const tseslint = require("typescript-eslint");
 const lal = require("@j1n/lint-a-lot");
