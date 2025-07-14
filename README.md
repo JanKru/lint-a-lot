@@ -117,6 +117,7 @@ If you want to test this library you can use `npm pack`. This will result in the
 
 - Optimise ci/cd (do not build twice)
 - include [eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest)
+- include [playwright](https://www.npmjs.com/package/eslint-plugin-playwright)
 - write an init-script that sets up everything
 
 ## Rules overview
