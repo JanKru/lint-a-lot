@@ -1,3 +1,13 @@
+## 0.4.0 (2025-07-16)
+
+### Feat
+
+- add testingRecommeded config (#18)
+
+### Refactor
+
+- adjust-angular-ts-recommended (#17)
+
 ## 0.3.0 (2025-07-09)
 
 ### Feat
