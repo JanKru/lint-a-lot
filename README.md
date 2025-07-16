@@ -50,6 +50,13 @@ module.exports = tseslint.config(
     ],
   },
   {
+    files: ["**/*.spec.ts"],
+    extends: [
+      lal.esLintConfig.configs.shared.testingRecommended,
+      lal.esLintConfig.configs.angular.tsRecommended,
+    ],
+  },
+  {
     files: ["**/*.html"],
     extends: [
       lal.esLintConfig.configs.angular.htmlRecommended,
