@@ -6,7 +6,6 @@ describe("angular.tsRecommended", () => {
     const rulesToTest = [
       "no-console", // custom-rules.js -> jsRules
       "@typescript-eslint/naming-convention", // custom-rules.js -> tsRules
-      "jasmine/no-focused-tests", // custom-rules.js -> jasmineRules
       "import-x/named", // custom-rules.js -> importXRules
       "@angular-eslint/prefer-standalone", // custom-rules.js -> angularRules
     ];
