@@ -1,3 +1,9 @@
+## 0.4.1 (2025-07-16)
+
+### Refactor
+
+- remove angular standalone rule from eslint configuration (#20)
+
 ## 0.4.0 (2025-07-16)
 
 ### Feat
