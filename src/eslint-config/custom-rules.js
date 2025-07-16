@@ -54,7 +54,6 @@ export const importXRules = {
 };
 
 export const angularRules = {
-  "@angular-eslint/prefer-standalone": "error",
   "@angular-eslint/directive-selector": [
     "error",
     {

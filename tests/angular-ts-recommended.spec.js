@@ -7,7 +7,6 @@ describe("angular.tsRecommended", () => {
       "no-console", // custom-rules.js -> jsRules
       "@typescript-eslint/naming-convention", // custom-rules.js -> tsRules
       "import-x/named", // custom-rules.js -> importXRules
-      "@angular-eslint/prefer-standalone", // custom-rules.js -> angularRules
     ];
 
     rulesToTest.forEach((ruleName) => {
