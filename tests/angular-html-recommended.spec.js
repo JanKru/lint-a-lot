@@ -19,8 +19,8 @@ describe("angular.htmlRecommended", () => {
   });
 
   test("should include prettier rules", () => {
-    const tsRecommended = plugin.configs.angular.tsRecommended;
-    const rule = tsRecommended.some(
+    const htmlRecommended = plugin.configs.angular.htmlRecommended;
+    const rule = htmlRecommended.some(
       (entry) => entry.rules?.["prettier/prettier"] !== undefined,
     );
     expect(rule).toBe(true);
