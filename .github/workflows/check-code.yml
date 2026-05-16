@@ -47,14 +47,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Remove node_modules and package-lock.json
-        run: |
-          rm -rf node_modules
-          rm -f package-lock.json
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
 
       - name: Install dependencies
         run: |
-          npm install --legacy-peer-deps
+          npm ci
 
       - name: Build project
         run: |
