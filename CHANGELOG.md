@@ -1,3 +1,9 @@
+## 0.5.0 (2026-05-16)
+
+### Feat
+
+- add stylelint plugin logical css (#22)
+
 ## 0.4.1 (2025-07-16)
 
 ### Refactor
