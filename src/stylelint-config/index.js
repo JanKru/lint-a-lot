@@ -39,6 +39,7 @@ export default {
     "stylelint-config-standard-scss",
     "stylelint-config-clean-order/error",
     "stylelint-prettier/recommended",
+    "stylelint-plugin-logical-css/configs/recommended",
   ],
   configBasedir: __dirname,
 };

@@ -8,7 +8,7 @@ export default [
     ignores: ["dist/**/*"],
   },
   js.configs.recommended,
-  eslintPlugin.configs["flat/recommended"],
+  eslintPlugin.configs.recommended,
   nodePlugin.configs["flat/recommended"],
   {
     languageOptions: {
