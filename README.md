@@ -164,3 +164,4 @@ Overview of rules and used plugins/configs.
 - [stylelint-config-clean-order](https://www.npmjs.com/package/stylelint-config-clean-order)
 - [stylelint-no-unsupported-browsers-features](https://www.npmjs.com/package/stylelint-no-unsupported-browser-features)
 - [stylelint-prettier](https://www.npmjs.com/package/stylelint-prettier)
+- [stylelint-plugin-logical-css](https://www.npmjs.com/package/stylelint-plugin-logical-css)

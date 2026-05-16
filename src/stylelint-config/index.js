@@ -6,7 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default {
-  plugins: ["stylelint-order", "stylelint-no-unsupported-browser-features"],
+  plugins: [
+    "stylelint-order",
+    "stylelint-no-unsupported-browser-features",
+    "stylelint-plugin-logical-css",
+  ],
   rules: {
     "plugin/no-unsupported-browser-features": [
       true,
