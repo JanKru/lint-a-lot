@@ -105,7 +105,7 @@ If you want to test this library you can use `npm pack`. This will result in the
 1. Go to the project where you want to use lint-a-lot.
 2. Open `package.json`
 3. Add lint-a-lot to `devDependencies` -> `json
-  "@j1n/lint-a-lot"": "file:<PATH_TO_YOUR_TGZ_FILE>",
+  "@j1n/lint-a-lot": "file:<PATH_TO_YOUR_TGZ_FILE>",
 `
 4. Remove `node_modules`-Dir
 5. Remove `package-lock.json`
