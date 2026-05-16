@@ -105,7 +105,7 @@ If you want to test this library you can use `npm pack`. This will result in the
 1. Go to the project where you want to use lint-a-lot.
 2. Open `package.json`
 3. Add lint-a-lot to `devDependencies` -> `json
-  "@j1n/lint-a-lot"": "file:<PATH_TO_YOUR_TGZ_FILE>",
+  "@j1n/lint-a-lot": "file:<PATH_TO_YOUR_TGZ_FILE>",
 `
 4. Remove `node_modules`-Dir
 5. Remove `package-lock.json`
@@ -164,3 +164,4 @@ Overview of rules and used plugins/configs.
 - [stylelint-config-clean-order](https://www.npmjs.com/package/stylelint-config-clean-order)
 - [stylelint-no-unsupported-browsers-features](https://www.npmjs.com/package/stylelint-no-unsupported-browser-features)
 - [stylelint-prettier](https://www.npmjs.com/package/stylelint-prettier)
+- [stylelint-plugin-logical-css](https://www.npmjs.com/package/stylelint-plugin-logical-css)
