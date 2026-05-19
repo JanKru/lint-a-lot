@@ -1,3 +1,13 @@
+## 1.0.0 (2026-05-19)
+
+### Feat
+
+- add @vitest/eslint-plugin (#26)
+
+### Fix
+
+- invalid deploy config
+
 ## 0.5.0 (2026-05-16)
 
 ### Feat
