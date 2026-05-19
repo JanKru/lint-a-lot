@@ -4,6 +4,8 @@ import * as angular from "angular-eslint";
 import globals from "globals";
 import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintPluginImportX from "eslint-plugin-import-x";
+/** required for typescript imports not default node import behavior */
+import * as tsResolver from "eslint-import-resolver-typescript";
 import eslint from "@eslint/js";
 
 import {
@@ -25,7 +27,6 @@ function withFiles(configs, files) {
 export const tsRecommended = defineConfig([
   ...withFiles(eslint.configs.recommended, ["**/*.ts"]),
   ...withFiles(angular.configs.tsRecommended, ["**/*.ts"]),
-
   {
     files: ["**/*.ts"],
     ignores: ["eslint.config.js"],
@@ -42,6 +43,8 @@ export const tsRecommended = defineConfig([
     settings: {
       "import-x/resolver": {
         typescript: true,
+        name: "tsResolver",
+        resolver: tsResolver,
       },
     },
     rules: {
