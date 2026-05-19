@@ -4,6 +4,8 @@ import * as angular from "angular-eslint";
 import globals from "globals";
 import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintPluginImportX from "eslint-plugin-import-x";
+/** required for typescript imports not default node import behavior */
+import * as tsResolver from "eslint-import-resolver-typescript";
 import eslint from "@eslint/js";
 
 import {
@@ -29,12 +31,15 @@ export const tsRecommended = defineConfig([
   {
     files: ["**/*.ts"],
     ignores: ["eslint.config.js"],
+
     languageOptions: {
       globals: {
         ...globals.browser,
       },
     },
+
     processor: angular.processInlineTemplates,
+
     plugins: {
       "@typescript-eslint": typescriptEslintPlugin,
       "import-x": eslintPluginImportX,
@@ -42,6 +47,8 @@ export const tsRecommended = defineConfig([
     settings: {
       "import-x/resolver": {
         typescript: true,
+        name: "tsResolver",
+        resolver: tsResolver,
       },
     },
     rules: {
