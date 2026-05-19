@@ -27,19 +27,15 @@ function withFiles(configs, files) {
 export const tsRecommended = defineConfig([
   ...withFiles(eslint.configs.recommended, ["**/*.ts"]),
   ...withFiles(angular.configs.tsRecommended, ["**/*.ts"]),
-
   {
     files: ["**/*.ts"],
     ignores: ["eslint.config.js"],
-
     languageOptions: {
       globals: {
         ...globals.browser,
       },
     },
-
     processor: angular.processInlineTemplates,
-
     plugins: {
       "@typescript-eslint": typescriptEslintPlugin,
       "import-x": eslintPluginImportX,
