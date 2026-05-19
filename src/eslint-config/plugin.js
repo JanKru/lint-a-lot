@@ -3,7 +3,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { tsRecommended } from "./config/angular-ts-recommended-config.js";
 import { htmlRecommended } from "./config/angular-html-recommended-config.js";
-import { testingRecommended } from "./config/testing-recommended-config.js";
+import {
+  testingJasmineRecommended,
+  testingVitestRecommended,
+} from "./config/testing-recommended-config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +35,8 @@ Object.assign(plugin.configs, {
     htmlRecommended,
   },
   shared: {
-    testingRecommended,
+    testingJasmineRecommended,
+    testingVitestRecommended,
   },
 });
 

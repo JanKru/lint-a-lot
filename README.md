@@ -1,6 +1,6 @@
 # Lint-a-lot
 
-The purpose of this package is to wrap common eslint and stylelint extensions in order to set them up as quickly as possible for a angular-project.
+Lint-a-lot is an opinionated ESLint and Stylelint configuration for Angular projects using modern Flat Config.
 Also this project contains a `.editorconfig` that should be used.
 
 ## Table of Contents
@@ -10,10 +10,8 @@ Also this project contains a `.editorconfig` that should be used.
   - [ESLint](#eslint)
   - [Stylelint](#stylelint)
   - [Editorconfig](#editorconfig)
-  - [IDE-setup](#IDE-setup)
   - [Test locally](#test-locally)
 - [Publish a new version](#publish-a-new-version)
-- [TODO / Improvement](#todo--improvement)
 - [Rules overview](#rules-overview)
   - [Es-lint `angular.tsRecommended` and `angular.htmlRecommended`](#es-lint-angulartsrecommended-and-angularhtmlrecommended)
     - [Custom rules](#custom-rules)
@@ -36,34 +34,29 @@ This lib supports `.cjs` and `.mjs`.
 
 In `eslint.config.js`:
 
-> Use tsling.config(...) in your `eslint.config.js` ([reason](./docs/architecture/eslint-config.md)):
+#### CommonJS
 
 ```javascript
-const tseslint = require("typescript-eslint");
 const lal = require("@j1n/lint-a-lot");
 
-module.exports = tseslint.config(
-  {
-    files: ["**/*.ts"],
-    extends: [
-      lal.esLintConfig.configs.angular.tsRecommended,
-    ],
-  },
-  {
-    files: ["**/*.spec.ts"],
-    extends: [
-      lal.esLintConfig.configs.shared.testingRecommended,
-      lal.esLintConfig.configs.angular.tsRecommended,
-    ],
-  },
-  {
-    files: ["**/*.html"],
-    extends: [
-      lal.esLintConfig.configs.angular.htmlRecommended,
-    ],
-  }
-);
+module.exports = [
+  ...lal.esLintConfig.configs.angular.tsRecommended,
+  ...lal.esLintConfig.configs.shared.testingVitestRecommended,
+  ...lal.esLintConfig.configs.angular.htmlRecommended,
+];
 ```
+
+#### Module
+```javascript
+import lal from '@j1n/lint-a-lot';
+
+export default [
+  ...lal.esLintConfig.configs.angular.tsRecommended,
+  ...lal.esLintConfig.configs.shared.testingVitestRecommended,
+  ...lal.esLintConfig.configs.angular.htmlRecommended,
+]
+```
+
 Check if you have a builder for eslint in your `angular.json`:
 
 ```json
@@ -80,14 +73,25 @@ Check if you have a builder for eslint in your `angular.json`:
   }
 }
 ```
+
 ### Stylelint
 
 In `stylelint.config.js`:
+
+#### CommonJS
 
 ```javascript
 const lal = require("@j1n/lint-a-lot");
 
 module.exports = lal.stylelintConfig;
+```
+
+### Module
+
+```javascript
+import lal from '@j1n/lint-a-lot';
+
+export default lal.stylelintConfig;
 ```
 
 ### Editorconfig
@@ -121,13 +125,6 @@ If you want to test this library you can use `npm pack`. This will result in the
 - run `git push origin --tags`
 - merge to main
 - start publish pipeline manually
-
-## TODO / Improvement
-
-- Optimise ci/cd (do not build twice)
-- include [eslint-plugin-jest](https://www.npmjs.com/package/eslint-plugin-jest)
-- include [playwright](https://www.npmjs.com/package/eslint-plugin-playwright)
-- write an init-script that sets up everything
 
 ## Rules overview
 
