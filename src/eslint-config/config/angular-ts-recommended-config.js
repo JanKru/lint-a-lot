@@ -1,9 +1,11 @@
+import { defineConfig } from "eslint/config";
+
 import * as angular from "angular-eslint";
 import globals from "globals";
 import typescriptEslintPlugin from "@typescript-eslint/eslint-plugin";
 import eslintPluginImportX from "eslint-plugin-import-x";
-import * as tsResolver from "eslint-import-resolver-typescript";
 import eslint from "@eslint/js";
+
 import {
   angularRules,
   importXRules,
@@ -11,14 +13,26 @@ import {
   tsRules,
 } from "../custom-rules.js";
 
-export const tsRecommended = [
-  eslint.configs.recommended,
-  ...angular.configs.tsRecommended,
+function withFiles(configs, files) {
+  return Array.from(Array.isArray(configs) ? configs : [configs]).map(
+    (config) => ({
+      ...config,
+      files,
+    }),
+  );
+}
+
+export const tsRecommended = defineConfig([
+  ...withFiles(eslint.configs.recommended, ["**/*.ts"]),
+  ...withFiles(angular.configs.tsRecommended, ["**/*.ts"]),
+
   {
     files: ["**/*.ts"],
     ignores: ["eslint.config.js"],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+      },
     },
     processor: angular.processInlineTemplates,
     plugins: {
@@ -28,8 +42,6 @@ export const tsRecommended = [
     settings: {
       "import-x/resolver": {
         typescript: true,
-        name: "tsResolver",
-        resolver: tsResolver,
       },
     },
     rules: {
@@ -42,4 +54,4 @@ export const tsRecommended = [
       ...angularRules,
     },
   },
-];
+]);
