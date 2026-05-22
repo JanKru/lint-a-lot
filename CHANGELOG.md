@@ -1,3 +1,9 @@
+## 1.1.0 (2026-05-22)
+
+### Feat
+
+- add eslint-plugin-prettier recommended configuration for *.ts files (#30)
+
 ## 1.0.1 (2026-05-19)
 
 ### Fix
