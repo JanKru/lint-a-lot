@@ -1,4 +1,5 @@
 import { defineConfig } from "eslint/config";
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
 import * as angular from "angular-eslint";
 import globals from "globals";
@@ -57,4 +58,5 @@ export const tsRecommended = defineConfig([
       ...angularRules,
     },
   },
+  eslintPluginPrettierRecommended,
 ]);
